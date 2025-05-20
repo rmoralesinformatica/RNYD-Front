@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-home',
+  standalone:false,
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'], // ❗ Era "styleUrl", debe ser styleUrls
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
   serviceCards = [
@@ -26,4 +27,15 @@ export class HomeComponent {
       image: 'assets/images/vascula.webp',
     }
   ];
+
+  galleryIMages = [
+    { name: 'progresos', plan: 'Progreso' },
+    { name: 'alimentacion', plan: 'Alimentación' },
+    { name: 'entrenamiento', plan: 'Entrenamiento' },
+    { name: 'food-training', plan: 'Dieta-Entrenamiento' }
+  ];
+
+  trackByIndex(index: number, item: any): number {
+    return index;
+  }
 }

@@ -1,20 +1,20 @@
-<main class="home-container">
-
-  <div class="main-container home-section1 d-flex align-items-center">
-    <img src="assets/images/banner_principal.webp" alt="banner principal" />
-
-    <div class="container">
-      <div class="home-section1__wrapper">
-        <h1 class="home-section1__title">¡MI FORMULA TU CAMBIO!</h1>
-        <div class="home-section1__text">
-          <p>
-            Mejora tu físico, optimiza tu rendimiento o alcanza tus objetivos
-            personales. Tú marcas la meta, nosotros creamos el plan para lograrlo.
-          </p>
-        </div>
+<div class="main-container home-section1 d-flex align-items-center">
+  <img src="assets/images/banner_principal.webp" alt="banner principal" />
+  <div class="container">
+    <div class="home-section1__wrapper">
+      <h1 class="home-section1__title">¡MI FORMULA TU CAMBIO!</h1>
+      <div class="home-section1__text">
+        <p>
+          Mejora tu físico, optimiza tu rendimiento o alcanza tus objetivos
+          personales. Tú marcas la meta, nosotros creamos el plan para lograrlo.
+        </p>
       </div>
+
     </div>
-    <div class="main-container home-section2 d-flex align-items-center">
+  </div>
+</div>
+
+<div class="main-container home-section2 d-flex align-items-center">
   <div class="container pt-5">
     <h2 class="text-center fw-bold">
       Convierte tu entrenamiento en una experiencia divertida
@@ -41,6 +41,21 @@
   </div>
 </div>
 
-  </div>
-
-</main>
+<div class="main-container home-section4">
+  <div class="container d-flex flex-column align-items-center">
+    <h2>¡Da el primer paso hacia tu mejor versión</h2>
+    <div class="home-section4__gallery d-grid">
+      @for (image of galleryIMages; track $index) {
+      <a href="#planes-rnyd">
+        <div class="home-section4__gallery--element">
+          <img
+            [src]="'assets/images/home-gallery/' + image.name + '.webp'"
+            alt="gallery Image"
+          />
+          <div class="home-section4__gallery--element__description">
+            <h3>{{ image.plan }}</h3>
+          </div>
+        </div>
+      </a>
+      }
+    </div>
