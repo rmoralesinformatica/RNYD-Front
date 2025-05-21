@@ -36,6 +36,14 @@ export class HomeComponent {
     { name: 'food-training', plan: 'Dieta-Entrenamiento' }
   ];
 
+secondaryGalleryIMages = [
+  'gallery_1',
+  'gallery_2',
+  'gallery_3',
+  'gallery_4',
+  'gallery_5',
+  'gallery_6'
+];
 
   gymFeatures = [
     'Recibe rutinas de ejercicio diseñadas específicamente para tus objetivos, nivel de condición física y necesidades.',

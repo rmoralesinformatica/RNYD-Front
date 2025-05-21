@@ -110,7 +110,76 @@
     </div>
   </div>
 </div>
-
+<div class="main-container home-section7">
+  <div class="container d-flex flex-column align-items-center">
+    <div class="yellow-circle"></div>
+    <div class="home-section7--inner">
+      <div class="home-section7--inner__img">
+        <img src="assets/images/personal-trainer.webp" alt="Entrenador personal" />
+      </div>
+      <div class="home-section7--inner__information">
+        <h2>Descubre tu mejor versión cada día con un entrenador personal</h2>
+        <p>
+          Transforma tu rutina con actividades diseñadas para ti. Un entrenador
+          personal te guía para superar tus límites, mantener la motivación y
+          lograr resultados reales. Cada sesión es una oportunidad para mejorar
+          tu bienestar físico y mental. ¡Alcanza tus metas de forma segura,
+          efectiva y con acompañamiento experto!
+        </p>
+      
+      </div>
+    </div>
+  </div>
+</div>
+<div class="main-container home-section8">
+  <div class="container d-flex flex-column align-items-center">
+    <div class="home-section8--inner">
+      <div class="yellow-overlay"></div>
+      <div class="home-section8--inner__information">
+        <h2>Encuentra tu mejor versión con entrenamiento personalizado</h2>
+        <p>
+          Descubre todo tu potencial físico y mental. Con la guía de un
+          entrenador personal, cada entrenamiento te acerca más a tus objetivos.
+        </p>
+      </div>
+      <div class="home-section8--inner__gallery">
+        @for (image of secondaryGalleryIMages; track $index) {
+          <div class="home-section8--inner__gallery--element">
+            <img
+              [src]="'assets/images/home-secondary-gallery/' + image + '.webp'"
+              alt="gallery Image"
+            />
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>
+<div class="main-container home-section9" id="contacto-rnyd">
+  <div class="container d-flex flex-column align-items-center">
+    <div class="home-section9--inner">
+      <div class="home-section9--inner__form">
+        <div class="home-section9--inner__form--element">
+          <h2>Contactanos</h2>
+          <div class="home-section9--inner__form--element__text">
+            <p>
+              Para cualquier consulta o aclaración relacionada con los servicios
+              contratados o por contratar, no dude en escribirnos a
+              <a href="mailto:rnutricionydeporte@gmail.com."
+                >rnutricionydeporte&#64;gmail.com.</a
+              >
+              Estaremos encantados de atenderle.
+            </p>
+          </div>
+        </div>
+        <div class="home-section9--inner__form--img">
+          <img src="assets/images/contact.webp" alt="Contact Image" />
+        </div>
+      </div>
+      <div class="home-section9--inner__information"></div>
+    </div>
+  </div>
+</div>
 
 </div>
 
