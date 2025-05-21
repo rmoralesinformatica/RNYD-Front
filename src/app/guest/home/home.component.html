@@ -57,5 +57,63 @@
           </div>
         </div>
       </a>
+
+<div class="main-container home-section5">
+  <div class="container d-flex flex-column align-items-center">
+    <div class="home-section5__section-wrapper">
+      <div class="home-section5--img">
+        <img
+          src="assets/images/posando_mujer.webp"
+          alt="Mujer en el Gimnasio"
+        />
+        <div class="home-section5--img__overlay"></div>
+      </div>
+      <div class="home-section5__section-wrapper--cards">
+        @for (cardText of gymFeatures; track $index) {
+          <div class="home-section5__section-wrapper--cards__element">
+            <div class="home-section5__section-wrapper--cards__element--icon">
+              <img src="assets/images/check_icon.webp" alt="Check icon" />
+            </div>
+            <p>{{ cardText }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+
+<div class="main-container home-section6" id="planes-rnyd">
+  <div class="container d-flex flex-column align-items-center">
+    <h2 class="text-center">
+      Escoge tu plan y entrena a tu manera, donde y cuando quieras
+    </h2>
+    <div class="home-section6__plans-cards">
+      @for (planCard of plansCards; track $index) {
+        <div class="home-section6__plans-cards__element">
+          <div class="home-section6__plans-cards__element--img">
+            <img
+              [src]="'assets/images/' + planCard.image + '.webp'"
+              alt="plan Image"
+            />
+          </div>
+          <div class="home-section6__plans-cards__element--information">
+            <h3>{{ planCard.title }}</h3>
+            <p>{{ planCard.description }}</p>
+            <p class="home-section6__plans-cards__element--information__price">
+              €{{ planCard.amount }}
+            </p>
+            <button class="btn btn-primary" (click)="subscribe(planCard.id)">
+              Suscríbete ahora
+            </button>
+          </div>
+        </div>
       }
     </div>
+  </div>
+</div>
+
+
+</div>
+
+
+      }
+    </div><!----final dejar libre el espacio para el footer -->
