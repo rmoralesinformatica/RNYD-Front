@@ -1,28 +1,41 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../../core/services/auth.service';
 
 @Component({
-  standalone: false,
+  standalone:false,
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'], 
 })
 export class LoginComponent {
   loginForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
+      password: ['', [Validators.required]],
     });
   }
 
   onSubmit(): void {
-    if (this.loginForm.valid) {
-      console.log('Login:', this.loginForm.value);
-      // Aquí irá la llamada al AuthService cuando lo tengas
-    } else {
-      console.log('Formulario inválido');
-    }
+    const email = this.loginForm.value.email;
+    const keyword = this.loginForm.value.password; 
+
+    this.authService.login(email, keyword).subscribe({
+      next: (res) => {
+        localStorage.setItem('token', res);
+        localStorage.setItem('email', email);
+        this.router.navigate(['/admin']);
+      },
+      error: () => {
+        alert('Invalid login credentials');
+      },
+    });
   }
 }
