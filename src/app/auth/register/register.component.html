@@ -1,20 +1,11 @@
 <div class="container register-page my-5">
-  <h2 class="mb-4 text-center fw-bold">Registro de Usuario</h2>
-
+    <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Registro de Usuario</h2>
+    <button class="btn btn-outline-primary" routerLink="/auth/login">
+      Ya tienes cuenta!
+    </button>
+  </div>
   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
-    <div class="mb-3">
-      <label>Nombre</label>
-      <input
-        type="text"
-        formControlName="name"
-        class="form-control"
-        [ngClass]="{ 'is-invalid': submitted && f['name'].errors }"
-      />
-      <div class="invalid-feedback" *ngIf="submitted && f['name'].errors">
-        El nombre es obligatorio
-      </div>
-    </div>
-
     <div class="mb-3">
       <label>Email</label>
       <input
@@ -26,6 +17,26 @@
       <div class="invalid-feedback" *ngIf="submitted && f['email'].errors">
         Email inválido
       </div>
+    </div>
+
+    <div class="mb-3">
+      <label>Nombre</label>
+      <input
+        type="text"
+        formControlName="name"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f['name'].errors }"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label>Apellido</label>
+      <input
+        type="text"
+        formControlName="surname"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f['surname'].errors }"
+      />
     </div>
 
     <div class="mb-3">
@@ -41,13 +52,177 @@
       </div>
     </div>
 
-    <button type="submit" class="btn btn-dark w-100">Registrarse</button>
-  </form>
+    <div class="mb-3">
+      <label>Fecha de nacimiento</label>
+      <input
+        type="date"
+        formControlName="birth_date"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f['birth_date'].errors }"
+      />
+    </div>
 
+    <div class="mb-3">
+      <label>Comidas al día</label>
+      <input
+        type="number"
+        formControlName="meals_per_day"
+        class="form-control"
+        placeholder="Entre 4 y 7"
+        [ngClass]="{ 'is-invalid': submitted && f['meals_per_day'].errors }"
+      />
+      <div
+        class="invalid-feedback"
+        *ngIf="submitted && f['meals_per_day'].errors"
+      >
+        Debe ser un número entre 4 y 7
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label>Alergias</label>
+      <input type="text" formControlName="allergies" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+      <label>Lesiones</label>
+      <input type="text" formControlName="injuries" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+      <label>Objetivo en el gimnasio</label>
+      <select formControlName="gym_goal" class="form-control">
+        <option value="">Selecciona una opción</option>
+        <option value="GAIN_MUSCLE">Ganar masa muscular</option>
+        <option value="LOSE_WEIGHT">Perder peso</option>
+        <option value="MAINTAIN_FITNESS">Mantener forma física</option>
+        <option value="IMPROVE_ENDURANCE">Mejorar resistencia</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label>Días de entrenamiento</label>
+      <input
+        type="number"
+        formControlName="training_days"
+        class="form-control"
+        placeholder="Entre 1 y 7"
+        [ngClass]="{
+          'is-invalid':
+            f['training_days'].invalid &&
+            (f['training_days'].dirty ||
+              f['training_days'].touched ||
+              submitted)
+        }"
+      />
+      <div
+        class="invalid-feedback"
+        *ngIf="
+          f['training_days'].invalid &&
+          (f['training_days'].dirty || f['training_days'].touched || submitted)
+        "
+      >
+        Debe ser un número entre 1 y 7
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label>Género</label>
+      <select class="form-control" formControlName="gender">
+        <option value="">Selecciona una opción</option>
+        <option value="HOMBRE">Hombre</option>
+        <option value="MUJER">Mujer</option>
+        <option value="OTRO">Otro</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label>Peso (kg)</label>
+      <input type="number" formControlName="weight" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+      <label>Estatura (cm)</label>
+      <input type="number" formControlName="height" class="form-control" />
+    </div>
+
+    <hr />
+    <h5>Medidas corporales (en cm):</h5>
+
+    <div class="row">
+      <div class="col-md-4 mb-3">
+        <input
+          type="number"
+          formControlName="neck"
+          class="form-control"
+          placeholder="Cuello"
+        />
+      </div>
+      <div class="col-md-4 mb-3">
+        <input
+          type="number"
+          formControlName="shoulders"
+          class="form-control"
+          placeholder="Hombros"
+        />
+      </div>
+      <div class="col-md-4 mb-3">
+        <input
+          type="number"
+          formControlName="chest"
+          class="form-control"
+          placeholder="Pecho"
+        />
+      </div>
+      <div class="col-md-4 mb-3">
+        <input
+          type="number"
+          formControlName="waist"
+          class="form-control"
+          placeholder="Cintura"
+        />
+      </div>
+      <div class="col-md-4 mb-3">
+        <input
+          type="number"
+          formControlName="hips"
+          class="form-control"
+          placeholder="Cadera"
+        />
+      </div>
+      <div class="col-md-4 mb-3">
+        <input
+          type="number"
+          formControlName="thigh"
+          class="form-control"
+          placeholder="Muslo"
+        />
+      </div>
+      <div class="col-md-4 mb-3">
+        <input
+          type="number"
+          formControlName="calf"
+          class="form-control"
+          placeholder="Gemelo"
+        />
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Registrarse</button>
+
+    <div *ngIf="successMessage" class="alert alert-success mt-3">
+      {{ successMessage }}
+    </div>
+    <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+      {{ errorMessage }}
+    </div>
+  </form>
   <div class="text-center mt-3">
-    <small>
-      ¿Ya tienes una cuenta?
-      <a routerLink="/auth/login">Inicia sesión aquí</a>
-    </small>
+    <small
+      >Ya tienes una cuenta?
+      <a routerLink="/auth/login">Inicia sesion aquí</a></small
+    >
   </div>
 </div>
+
+      
