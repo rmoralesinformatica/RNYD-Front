@@ -1,0 +1,22 @@
+.register-page {
+  max-width: 500px;
+  margin: 0 auto;
+
+  .form-control {
+    border-radius: 8px;
+  }
+
+  .btn {
+    border-radius: 8px;
+    padding: 10px;
+    font-weight: bold;
+  }
+
+  h2 {
+    color: #333;
+  }
+
+  .invalid-feedback {
+    font-size: 0.9rem;
+  }
+}

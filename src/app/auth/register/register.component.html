@@ -1,1 +1,53 @@
-<p>register works!</p>
+<div class="container register-page my-5">
+  <h2 class="mb-4 text-center fw-bold">Registro de Usuario</h2>
+
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="mb-3">
+      <label>Nombre</label>
+      <input
+        type="text"
+        formControlName="name"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f['name'].errors }"
+      />
+      <div class="invalid-feedback" *ngIf="submitted && f['name'].errors">
+        El nombre es obligatorio
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label>Email</label>
+      <input
+        type="email"
+        formControlName="email"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+      />
+      <div class="invalid-feedback" *ngIf="submitted && f['email'].errors">
+        Email inválido
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label>Contraseña</label>
+      <input
+        type="password"
+        formControlName="keyword"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f['keyword'].errors }"
+      />
+      <div class="invalid-feedback" *ngIf="submitted && f['keyword'].errors">
+        Debe tener mínimo 4 caracteres
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-dark w-100">Registrarse</button>
+  </form>
+
+  <div class="text-center mt-3">
+    <small>
+      ¿Ya tienes una cuenta?
+      <a routerLink="/auth/login">Inicia sesión aquí</a>
+    </small>
+  </div>
+</div>
