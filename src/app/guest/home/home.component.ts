@@ -78,7 +78,18 @@ secondaryGalleryIMages = [
   subscribe(priceId: string): void {
     console.log('Usuario quiere suscribirse al plan:', priceId);
   }
+const stripeDTO = {
+  priceId: pirceId,
+  successUrl: `${window.location.origin}/subscription-result/${pirceId}`,
+  cancelUrl: `${window.location.origin}/subscription-result/fail`,
+};
 
+this.subscriptionService.createCheckoutSession(stripeDTO).subscribe({
+  next: (res: any) => {
+    if (res && res.url) {
+      window.location.href = res.url; // Te manda a Stripe
+    }
+});
 
   trackByIndex(index: number, item: any): number {
     return index;

@@ -1,0 +1,7 @@
+<div class="subscription-result d-flex flex-column align-items-center mt-5">
+  <h2 *ngIf="isSuccess; else failTpl">Suscripción exitosa</h2>
+  <ng-template #failTpl>
+    <h2> Error al procesar la suscripción</h2>
+  </ng-template>
+  <p>Serás redirigido al inicio en unos segundos...</p>
+</div>

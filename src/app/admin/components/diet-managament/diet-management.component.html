@@ -1,0 +1,57 @@
+<div class="diet-management">
+  <h4 class="mb-3">Gestión de Dietas</h4>
+
+  <form [formGroup]="dietForm" (ngSubmit)="submit()">
+    <div class="row g-3">
+      <div class="col-md-6">
+        <label>Nombre</label>
+        <input formControlName="diet_name" type="text" class="form-control" />
+      </div>
+      <div class="col-md-6">
+        <label>Inicio</label>
+        <input formControlName="start_date" type="date" class="form-control" />
+      </div>
+      <div class="col-md-6">
+        <label>Nota</label>
+        <input formControlName="note" type="text" class="form-control" />
+      </div>
+      <div class="col-md-6">
+        <label>Preferencias</label>
+        <input formControlName="preferences" type="text" class="form-control" />
+      </div>
+      <div class="col-12">
+        <label>Alergias</label>
+        <input formControlName="allergies" type="text" class="form-control" />
+      </div>
+    </div>
+
+    <button class="btn btn-primary mt-3" type="submit">
+      {{ editMode ? 'Guardar Cambios' : 'Crear Dieta' }}
+    </button>
+    <button class="btn btn-secondary mt-3 ms-2" type="button" (click)="resetForm()" *ngIf="editMode">
+      Cancelar
+    </button>
+  </form>
+
+  <hr class="my-4" />
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Inicio</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let diet of diets">
+        <td>{{ diet.diet_name }}</td>
+        <td>{{ diet.start_date | date }}</td>
+        <td>
+          <button class="btn btn-sm btn-primary me-1" (click)="editDiet(diet)">✏️</button>
+          <button class="btn btn-sm btn-danger" (click)="deleteDiet(diet.diet_id)">🗑️</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
