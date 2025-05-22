@@ -1,0 +1,98 @@
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h4>Historial de Progreso</h4>
+  <button class="btn btn-primary" (click)="openProgressModal()">Subir Progreso</button>
+</div>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Peso (kg)</th>
+      <th>Altura (m)</th>
+       <th>Medidas (cm)</th>
+      <th>Imagen</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of progressHistory">
+      <td>{{ p.progressDate | date: 'yyyy-MM-dd' }}</td>
+      <td>{{ p.weight }}</td>
+      <td>{{ p.height }}</td>
+        <td>
+        <strong>Cuello:</strong> {{ p.neck || '-' }} cm<br>
+        <strong>Hombros:</strong> {{ p.shoulders || '-' }} cm<br>
+        <strong>Pecho:</strong> {{ p.chest || '-' }} cm<br>
+        <strong>Cintura:</strong> {{ p.waist || '-' }} cm<br>
+        <strong>Caderas:</strong> {{ p.hips || '-' }} cm<br>
+        <strong>Muslo:</strong> {{ p.thigh || '-' }} cm<br>
+        <strong>Pantorrilla:</strong> {{ p.calf || '-' }} cm
+      </td>
+      <td>
+        <a [href]="'http://localhost:8080'+ p.imagePath" target="_blank" rel="noopener noreferrer">
+          <img [src]="'http://localhost:8080'+ p.imagePath" alt="Progreso" width="100" />
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<div class="modal fade" id="progressModal" tabindex="-1">
+  <div class="modal-dialog">
+    <form class="modal-content" (ngSubmit)="submitProgress()" enctype="multipart/form-data">
+      <div class="modal-header">
+        <h5 class="modal-title">Subir Progreso</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-2">
+          <label>Fecha</label>
+          <input type="date" class="form-control" [(ngModel)]="progressDate" name="progressDate" required />
+        </div>
+        <div class="mb-2">
+          <label>Peso (kg)</label>
+          <input type="number" class="form-control" [(ngModel)]="weight" name="weight" required />
+        </div>
+        <div class="mb-2">
+          <label>Altura (m)</label>
+          <input type="number" class="form-control" [(ngModel)]="height" name="height" required />
+        </div>
+        <div class="mb-2">
+          <label>Cuello (cm)</label>
+          <input type="number" class="form-control" [(ngModel)]="neck" name="neck" />
+        </div>
+        <div class="mb-2">
+          <label>Hombros (cm)</label>
+          <input type="number" class="form-control" [(ngModel)]="shoulders" name="shoulders" />
+        </div>
+        <div class="mb-2">
+          <label>Pecho (cm)</label>
+          <input type="number" class="form-control" [(ngModel)]="chest" name="chest" />
+        </div>
+        <div class="mb-2">
+          <label>Cintura (cm)</label>
+          <input type="number" class="form-control" [(ngModel)]="waist" name="waist" />
+        </div>
+        <div class="mb-2">
+          <label>Caderas (cm)</label>
+          <input type="number" class="form-control" [(ngModel)]="hips" name="hips" />
+        </div>
+        <div class="mb-2">
+          <label>Muslo (cm)</label>
+          <input type="number" class="form-control" [(ngModel)]="thigh" name="thigh" />
+        </div>
+        <div class="mb-2">
+          <label>Pantorrilla (cm)</label>
+          <input type="number" class="form-control" [(ngModel)]="calf" name="calf" />
+        </div>
+        <div class="mb-2">
+          <label>Imagen</label>
+          <input type="file" class="form-control" (change)="onFileSelected($event)" required />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-success">Subir</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,14 +1,21 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent } from './app.component';
+import { RouterModule, Routes } from '@angular/router';
+
+import { LoginComponent } from './auth/login/login.component';
+
+
+const routes: Routes = [
+  {
+    path: '',
+    loadChildren: () =>
+      import('./guest/guest.module').then((m) => m.GuestModule),
+  },
+
+  { path: '**', redirectTo: '' },
+];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
-  imports: [
-    BrowserModule
-  ],
-  bootstrap: [AppComponent]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
-export class AppModule {}
+export class AppRoutingModule {}
