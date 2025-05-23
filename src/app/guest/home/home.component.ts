@@ -92,7 +92,7 @@ export class HomeComponent implements OnInit {
     }
 
     const stripeDTO = {
-      priceId: pirceId, 
+      priceId: pirceId, // you need to include this when mapping
       successUrl: `${window.location.origin}/subscription-result/${pirceId}`,
       cancelUrl: `${window.location.origin}/subscription-result/fail`,
     };

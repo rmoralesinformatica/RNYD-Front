@@ -11,8 +11,7 @@ import { SubscriptionResultComponent } from './subscription-result/subscription-
 @NgModule({
   declarations: [
     HomeComponent,
-    SubscriptionResultComponent,
-  
+    SubscriptionResultComponent
   ],
   imports: [
     CommonModule,

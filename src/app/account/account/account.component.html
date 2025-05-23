@@ -54,7 +54,7 @@
                 <ng-template #noSubscription> Sin suscripción </ng-template>
               </p>
 
-       
+              <!-- Subscription Data -->
               <ng-container *ngIf="isSubscribedUser">
                 <p>
                   <strong>Comidas por día:</strong>
@@ -102,7 +102,7 @@
                   </tbody>
                 </table>
 
-       
+                <!-- Diets Section -->
                 <ng-container
                   *ngIf="
                     subscriptionType === 'dieta' ||
@@ -166,7 +166,7 @@
                   </ng-template>
                 </ng-container>
 
-          
+                <!-- Workouts Section -->
                 <ng-container
                   *ngIf="
                     subscriptionType === 'entrenamiento' ||
@@ -226,7 +226,7 @@
                 </ng-container>
               </ng-container>
 
-     
+              <!-- Invite to Subscribe -->
               <ng-container *ngIf="!isSubscribedUser">
                 <div class="alert alert-info mt-4">
                   <h5>¡Obtén un plan hoy!</h5>
@@ -255,7 +255,7 @@
 </div>
 
 
-
+<!-- Edit User Modal -->
 <div class="modal fade" id="editUserModal" tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -265,7 +265,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body">
-    
+          <!-- Personal Information -->
           <div class="mb-2">
             <label>Nombre</label>
             <input type="text" formControlName="name" class="form-control" />
@@ -291,7 +291,7 @@
             </select>
           </div>
 
-     
+          <!-- Gym Information -->
           <ng-container *ngIf="isSubscribedUser">
             <div class="mb-2">
               <label>Comidas por Día</label>

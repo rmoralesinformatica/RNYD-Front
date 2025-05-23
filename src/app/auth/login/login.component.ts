@@ -4,10 +4,9 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
 
 @Component({
-  standalone:false,
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'], 
+  styleUrl: './login.component.scss',
 })
 export class LoginComponent {
   loginForm: FormGroup;
@@ -24,11 +23,14 @@ export class LoginComponent {
   }
 
   onSubmit(): void {
+    // if (this.loginForm.invalid) return;
+
     const email = this.loginForm.value.email;
-    const keyword = this.loginForm.value.password; 
+    const keyword = this.loginForm.value.password;
 
     this.authService.login(email, keyword).subscribe({
       next: (res) => {
+        console.log('entre');
         localStorage.setItem('token', res);
         localStorage.setItem('email', email);
         this.router.navigate(['/admin']);

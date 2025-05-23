@@ -1,12 +1,6 @@
-.subscription-result {
-  text-align: center;
-
-  h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  p {
-    color: #666;
-  }
+.subscription-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 105px);
 }

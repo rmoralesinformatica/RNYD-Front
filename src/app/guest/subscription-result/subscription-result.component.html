@@ -1,7 +1,14 @@
-<div class="subscription-result d-flex flex-column align-items-center mt-5">
-  <h2 *ngIf="isSuccess; else failTpl">Suscripción exitosa</h2>
-  <ng-template #failTpl>
-    <h2> Error al procesar la suscripción</h2>
-  </ng-template>
-  <p>Serás redirigido al inicio en unos segundos...</p>
+<div class="container text-center mt-5 subscription-container">
+  <div *ngIf="success">
+    <h2>¡Suscripción completada con éxito!</h2>
+    <p>Gracias por unirte. Ya puedes acceder a tu cuenta.</p>
+    <p>Tu servicio estará activo en un plazo de 48 a 72 horas. Si tienes alguna consulta, no dudes en escribirnos a <strong>rnutricionydeporte&#64;gmail.com</strong>.</p>
+    <a routerLink="/account" class="btn btn-success mt-3">Ir a mi cuenta</a>
+  </div>
+
+  <div *ngIf="error">
+    <h2>❌ Tu pago no pudo completarse</h2>
+    <p>Inténtalo de nuevo o selecciona otro plan.</p>
+    <a href="/#planes-rnyd" class="btn btn-danger mt-3">Volver a los planes</a>
+  </div>
 </div>

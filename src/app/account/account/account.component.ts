@@ -70,7 +70,7 @@ export class AccountComponent implements OnInit {
     this.http
       .get<UserDTO>(`http://localhost:8080/user/${email}`, {
         headers: {
-          Authorization: `Bearer ${token}`, 
+          Authorization: `Bearer ${token}`, // 👈 Add "Bearer " prefix
           'Content-Type': 'application/json',
         },
       })
@@ -124,7 +124,7 @@ export class AccountComponent implements OnInit {
   openEditModal(): void {
     if (!this.userDetails) return;
 
-
+    // Populate the form with the current user details
     this.editForm.patchValue({
       name: this.userDetails.name || '',
       surname: this.userDetails.surname || '',
@@ -166,7 +166,7 @@ export class AccountComponent implements OnInit {
       })
       .subscribe(() => {
         this.modalRef.hide();
-        this.ngOnInit();
+        this.ngOnInit(); // Reload user details
       });
   }
 }

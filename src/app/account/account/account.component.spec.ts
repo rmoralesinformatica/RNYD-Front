@@ -21,4 +21,3 @@ describe('AccountComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-

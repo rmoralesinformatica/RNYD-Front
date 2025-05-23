@@ -35,7 +35,7 @@ export class UserProgressComponent implements OnInit {
     this.http
       .get<any[]>(`http://localhost:8080/progress/history/${email}`, {
         headers: {
-          Authorization: `Bearer ${token}`, 
+          Authorization: `Bearer ${token}`, // 👈 Add "Bearer " prefix
           'Content-Type': 'application/json',
         },
       })
@@ -85,6 +85,7 @@ export class UserProgressComponent implements OnInit {
     formData.append('height', this.height.toString());
     formData.append('progressDate', this.progressDate);
 
+        // Append the new fields if they are set
     if (this.neck !== null) formData.append('neck', this.neck.toString());
     if (this.shoulders !== null) formData.append('shoulders', this.shoulders.toString());
     if (this.chest !== null) formData.append('chest', this.chest.toString());
@@ -98,7 +99,7 @@ export class UserProgressComponent implements OnInit {
     this.http
       .post(`http://localhost:8080/progress/upload/${email}`, formData, {
         headers: {
-          Authorization: `Bearer ${token}`, 
+          Authorization: `Bearer ${token}`, // send token directly, no 'Bearer '
         },
         responseType: 'text' as 'json',
       })
