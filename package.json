@@ -1,6 +1,6 @@
 {
-  "name": "rnyd-front",
- "version": "0.0.0",
+  "name": "rnd",
+  "version": "0.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
