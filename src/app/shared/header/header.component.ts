@@ -50,7 +50,7 @@ export class HeaderComponent implements OnInit {
   closeMenu(): void {
     const menuFixed = document.querySelector('.menu-fixed');
     if (menuFixed) {
-      menuFixed.classList.remove('active'); 
+      menuFixed.classList.remove('active'); // Remove active class from .menu-fixed
     }
     const checkbox = document.getElementById('check') as HTMLInputElement;
     if (checkbox) {
@@ -60,10 +60,10 @@ export class HeaderComponent implements OnInit {
 
   navigateToSection(fragment: string) {
     if (this.router.url === '/' || this.router.url.includes('/#')) {
-   
+      // If already on home, scroll directly
       this.viewportScroller.scrollToAnchor(fragment);
     } else {
-   
+      // Navigate to home first, then scroll
       this.router.navigate(['/'], { fragment }).then(() => {
         setTimeout(() => {
           this.viewportScroller.scrollToAnchor(fragment);

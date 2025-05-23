@@ -1,0 +1,40 @@
+@import "../../../../styles.scss";
+
+a {
+  display: inline-block;
+  border: 2px solid $main-color;
+  padding: 0.5rem 2rem;
+  background-color: transparent;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #fff;
+  text-transform: uppercase;
+  line-height: 1;
+  text-decoration: none;
+  border-radius: 10px;
+  margin-top: 2rem;
+  transition: all 0.3s ease-in;
+  transform: translateY(0);
+&.type-2{
+  background-color: #000;
+  border-color: #000;
+  &:hover {
+    border-color: $main-color;
+  }
+}
+&.type-3{
+  background-color: #000;
+  border-color: #000;
+  margin-top: 0;
+  &:hover {
+    border-color: $main-color;
+  }
+}
+  &:hover {
+    background-color: $main-color;
+    opacity: 0.9;
+    transition: all 0.3s ease-out;
+    transform: translateY(-1px);
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  }
+}
