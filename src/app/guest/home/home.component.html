@@ -9,7 +9,7 @@
           personales. Tú marcas la meta, nosotros creamos el plan para lograrlo.
         </p>
       </div>
-
+   
     </div>
   </div>
 </div>
@@ -57,6 +57,11 @@
           </div>
         </div>
       </a>
+      }
+    </div>
+
+  </div>
+</div>
 
 <div class="main-container home-section5">
   <div class="container d-flex flex-column align-items-center">
@@ -70,52 +75,54 @@
       </div>
       <div class="home-section5__section-wrapper--cards">
         @for (cardText of gymFeatures; track $index) {
-          <div class="home-section5__section-wrapper--cards__element">
-            <div class="home-section5__section-wrapper--cards__element--icon">
-              <img src="assets/images/check_icon.webp" alt="Check icon" />
-            </div>
-            <p>{{ cardText }}</p>
+        <div class="home-section5__section-wrapper--cards__element">
+          <div class="home-section5__section-wrapper--cards__element--icon">
+            <img src="assets/images/check_icon.webp" alt="gallery Image" />
           </div>
+          <p>{{ cardText }}</p>
+        </div>
         }
       </div>
     </div>
   </div>
+</div>
 
 <div class="main-container home-section6" id="planes-rnyd">
   <div class="container d-flex flex-column align-items-center">
     <h2 class="text-center">
-      Escoge tu plan y entrena a tu manera, donde y cuando quieras
+     Con tu sesión activa, selecciona tu plan y avanza sin límites.
     </h2>
     <div class="home-section6__plans-cards">
       @for (planCard of plansCards; track $index) {
-        <div class="home-section6__plans-cards__element">
-          <div class="home-section6__plans-cards__element--img">
-            <img
-              [src]="'assets/images/' + planCard.image + '.webp'"
-              alt="plan Image"
-            />
-          </div>
-          <div class="home-section6__plans-cards__element--information">
-            <h3>{{ planCard.title }}</h3>
-            <p>{{ planCard.description }}</p>
-            <p class="home-section6__plans-cards__element--information__price">
-              €{{ planCard.amount }}
-            </p>
-            <button class="btn btn-primary" (click)="subscribe(planCard.id)">
-              Suscríbete ahora
-            </button>
-          </div>
+      <div class="home-section6__plans-cards__element">
+        <div class="home-section6__plans-cards__element--img">
+          <img
+            [src]="'assets/images/' + planCard.image + '.webp'"
+            alt="plan Image"
+          />
         </div>
+        <div class="home-section6__plans-cards__element--information">
+          <h3>{{ planCard.title }}</h3>
+          <p>{{ planCard.description }}</p>
+          <p class="home-section6__plans-cards__element--information__price">
+            €{{ planCard.amount }}
+          </p>
+          <button class="btn btn-primary" (click)="subscribe(planCard.id)">
+            Suscríbete ahora
+          </button>
+        </div>
+      </div>
       }
     </div>
   </div>
 </div>
+
 <div class="main-container home-section7">
   <div class="container d-flex flex-column align-items-center">
     <div class="yellow-circle"></div>
     <div class="home-section7--inner">
       <div class="home-section7--inner__img">
-        <img src="assets/images/personal-trainer.webp" alt="Entrenador personal" />
+        <img src="assets/images/personal-trainer.webp" alt="gallery Image" />
       </div>
       <div class="home-section7--inner__information">
         <h2>Descubre tu mejor versión cada día con un entrenador personal</h2>
@@ -126,11 +133,12 @@
           tu bienestar físico y mental. ¡Alcanza tus metas de forma segura,
           efectiva y con acompañamiento experto!
         </p>
-      
+     
       </div>
     </div>
   </div>
 </div>
+
 <div class="main-container home-section8">
   <div class="container d-flex flex-column align-items-center">
     <div class="home-section8--inner">
@@ -144,17 +152,18 @@
       </div>
       <div class="home-section8--inner__gallery">
         @for (image of secondaryGalleryIMages; track $index) {
-          <div class="home-section8--inner__gallery--element">
-            <img
-              [src]="'assets/images/home-secondary-gallery/' + image + '.webp'"
-              alt="gallery Image"
-            />
-          </div>
+        <div class="home-section8--inner__gallery--element">
+          <img
+            [src]="'assets/images/home-secondary-gallery/' + image + '.webp'"
+            alt="gallery Image"
+          />
+        </div>
         }
       </div>
     </div>
   </div>
 </div>
+
 <div class="main-container home-section9" id="contacto-rnyd">
   <div class="container d-flex flex-column align-items-center">
     <div class="home-section9--inner">
@@ -181,8 +190,6 @@
   </div>
 </div>
 
-</div>
-
-
-      }
-    </div><!----final dejar libre el espacio para el footer -->
+<a class="sticky-service-button" href="#planes-rnyd">
+  <img src="assets/images/service_icon.webp" alt="Mano sosteniendo pesa" />
+</a>

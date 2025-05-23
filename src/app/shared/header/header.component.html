@@ -1,13 +1,68 @@
-<header class="main-header">
-  <div class="logo">RNYD</div>
+<div class="menu-fixed">
+  <div class="menu-fixed--inner">
+    <a href="/#contacto-rnyd" (click)="closeMenu()">Contacto</a>
+    <a href="/#planes-rnyd" (click)="closeMenu()">Planes</a>
+    <ng-container *ngIf="isLoggedIn(); else loginIconMobile">
+      <a href="/account" (click)="closeMenu()">Cuenta</a>
+    </ng-container>
+    <ng-container *ngIf="isAdmin">
+      <a href="/admin" (click)="closeMenu()">Admin</a>
+    </ng-container>
+    <ng-template #loginIconMobile>
+      <a href="/auth/login" (click)="closeMenu()">Login</a>
+      <a href="/auth/register" (click)="closeMenu()">Registro</a>
+    </ng-template>
+  </div>
+</div>
 
-  <nav class="main-nav">
-    <ul>
-      <li><a href="#">Inicio</a></li>
-      <li><a href="#">Planes</a></li>
-      <li><a href="#">Contacto</a></li>
-      <li><a href="#">Iniciar sesión</a></li>
-      <li><a href="#">Registrarse</a></li>
-    </ul>
-  </nav>
-</header>
+<div class="container d-flex justify-content-between align-items-center py-3">
+  <div class="logo-container">
+    <app-logo></app-logo>
+  </div>
+  <div class="menu-main-wrapper">
+    <div class="menu-list">
+      <a (click)="navigateToSection('contacto-rnyd')">Contacto</a>
+      <a (click)="navigateToSection('planes-rnyd')">Planes</a>
+      <ng-container *ngIf="isLoggedIn()">
+        <a href="/account">Cuenta</a>
+      </ng-container>
+      <ng-container *ngIf="isAdmin">
+        <a href="/admin">Admin</a>
+      </ng-container>
+    </div>
+    <div>
+      <ng-container *ngIf="isLoggedIn(); else loginIcon">
+        <fa-icon
+          [icon]="faSignInAlt"
+          class="user-icon"
+          style="cursor: pointer"
+          (click)="logout()"
+          title="Cerrar sesión"
+        ></fa-icon>
+      </ng-container>
+
+      <ng-template #loginIcon>
+        <div class="auth-buttons-container">
+          <app-main-button
+            url="/auth/register"
+            label="¡Comienza tu cambio!"
+            className="type-3"
+          ></app-main-button>
+          <app-main-button
+            url="/auth/login"
+            label="Login"
+            className="type-3"
+          ></app-main-button>
+        </div>
+      </ng-template>
+    </div>
+    <div class="menu-container">
+      <label for="check">
+        <input type="checkbox" id="check" (change)="toggleMenu($event)" />
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </div>
+  </div>
+</div>
