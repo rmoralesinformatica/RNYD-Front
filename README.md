@@ -1,27 +1,78 @@
-# Rnd
+# RNYD - Frontend Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.1.
+Este es el frontend de la aplicación **RNYD**, hecho con Angular. Está dividido por módulos según los tipos de usuarios: visitantes, usuarios registrados y administradores. Consume una API en Spring Boot para mostrar información sobre suscripciones, dietas, entrenamientos y perfiles.
+### Importante 
+- Se necesita tener creado el usuario administrador (desde la aplicación Postman o desde la bbdd mediante SQL) para poder crear y asignar las rutinas
+- Imprescindible antes de ejecutar el proyecto por terminal los comandos importantes de Angular (npm install -g @angular/cli  o npm install , ng serve, ) 
+## Tecnologías usadas
 
-## Development server
+- Angular 17
+- TypeScript
+- SCSS
+- RxJS
+- Angular Router
+- Angular Material (solo algunos componentes)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Estructura del proyecto
 
-## Code scaffolding
+```
+src/app/
+-  account/         --> Vistas y componentes de usuario registrado
+- admin/           --> Panel de administración (dietas, entrenamientos)
+- auth/            --> Login y registro
+- core/            --> Servicios, guards y lógica compartida
+- guest/           --> Vistas públicas (home, resultados)
+- hared/          --> Componentes reutilizables (header, botones, pipes)
+app.module.ts    --> Módulo principal
+app-routing.module.ts --> Rutas generales
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Cómo levantar el proyecto
 
-## Build
+1. Clona el repositorio:
+   ```bash
+   git clone https://github.com/tuusuario/rnyd-front.git
+   ```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+2. Instala dependencias:
+   ```bash
+   npm install
+   ```
 
-## Running unit tests
+3. Levanta el servidor:
+   ```bash
+   ng serve
+   ```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+4. Abre en el navegador:  
+   `http://localhost:4200`
 
-## Running end-to-end tests
+## Funcionalidades principales
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Visitantes (Guest)
 
-## Further help
+- Ver página de inicio
+- Comprobar resultado de suscripción (`/subscription-result`)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Autenticación
+
+- Registro de usuario
+- Inicio de sesión
+- Guards para proteger rutas privadas
+
+### Usuario registrado
+
+- Ver perfil y progreso
+- Acceso a su dieta y entrenamiento personalizado
+
+### Administrador
+
+- Gestión de dietas
+- Gestión de entrenamientos
+- Panel de administración accesible solo con rol admin
+
+## Notas
+
+- Este proyecto depende del backend en Spring Boot.  
+  Asegúrate de que esté levantado en el puerto correspondiente (`http://localhost:8080` por defecto).
+
