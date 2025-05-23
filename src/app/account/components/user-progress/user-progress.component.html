@@ -19,7 +19,7 @@
       <td>{{ p.weight }}</td>
       <td>{{ p.height }}</td>
         <td>
-        <strong>Cuello:</strong> {{ p.neck || '-' }} cm<br>
+        <strong>Experiencia con pesas:</strong> {{ p.neck || '-' }} años<br>
         <strong>Hombros:</strong> {{ p.shoulders || '-' }} cm<br>
         <strong>Pecho:</strong> {{ p.chest || '-' }} cm<br>
         <strong>Cintura:</strong> {{ p.waist || '-' }} cm<br>
@@ -59,7 +59,7 @@
           <input type="number" class="form-control" [(ngModel)]="height" name="height" required />
         </div>
         <div class="mb-2">
-          <label>Cuello (cm)</label>
+          <label>Experiencia con pesas (años)</label>
           <input type="number" class="form-control" [(ngModel)]="neck" name="neck" />
         </div>
         <div class="mb-2">
