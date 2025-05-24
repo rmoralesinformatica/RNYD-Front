@@ -151,6 +151,32 @@ export class AccountComponent implements OnInit {
     this.modalRef.show();
   }
 
+  deleteUser(email: string): void {
+    const token = localStorage.getItem('token');
+    if (confirm(`¿Estás seguro de eliminar a ${email}?`)) {
+      this.http
+        .delete(`http://localhost:8080/user/${email}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
+          },
+          responseType: 'text' as 'json',
+        })
+        .subscribe({
+          next: () => {
+            // Opcional: limpiar datos y redirigir al login
+            localStorage.clear();
+            this.router.navigate(['/login']);
+          },
+          error: (err) => {
+            console.error('Error deleting user:', err);
+          },
+        });
+    }
+  }
+ 
+
+
   submitEdit(): void {
     const token = localStorage.getItem('token');
     const email = localStorage.getItem('email');
