@@ -75,7 +75,7 @@ export class HomeComponent implements OnInit {
   loadPlans(): void {
     this.subscriptionService.getAllSubscriptions().subscribe((subs) => {
       console.log('subs', subs);
-      this.plansCards = subs.map((sub, index) => ({
+      this.plansCards = subs.map((sub, index) => ({ 
         id: sub.productId,
         title: sub.name,
         description: sub.description,
@@ -84,6 +84,27 @@ export class HomeComponent implements OnInit {
       }));
     });
   }
+  // Si quiero añadir precios especificos 
+  /*this.plansCards = subs.map((sub, index) => {
+  let amount = 0;
+
+  if (sub.name.includes('Entrenamiento') && sub.name.includes('Dieta')) {
+    amount = 70; // combo con descuento
+  } else if (sub.name.includes('Entrenamiento')) {
+    amount = 40;
+  } else if (sub.name.includes('Dieta')) {
+    amount = 50;
+  }
+
+  return {
+    id: sub.productId,
+    title: sub.name,
+    description: sub.description,
+    amount,
+    image: `plan_${index + 1}`,
+  };
+});
+*/ 
 
   subscribe(pirceId: string): void {
     if (!this.authService.isLoggedIn()) {
